@@ -1,4 +1,4 @@
-/*
+    /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -25,6 +25,9 @@ class PlayerObject extends MovableObject{
     ArrayList<Image> rightSprites;
     private float x;
     private float y;
+    private int imCh;
+    private HitBox hB;
+    
     int increment;
     private static int direction;
     public PlayerObject(int x, int y ,Dimension boardSize) {
@@ -37,50 +40,48 @@ class PlayerObject extends MovableObject{
         loadImages();
         setImage(downSprites.get(0));
         direction = 0;
+        hB = new HitBox(this);
+        
     }
 
     
     public void moveLeft(){
         setX(getX() - increment);
-        int i=0;
-        setImage(leftSprites.get(i));
-        if(i==0){
-            i=1;
-        }else if(i==1){
-            i=0;
+        setImage(leftSprites.get(imCh));
+        if(imCh==0){
+            imCh=1;
+        }else if(imCh==1){
+            imCh=0;
         }
     }  
     
     public void moveRight(){
         setX(getX() + increment);
-        int i=0;
-        setImage(rightSprites.get(i));
-        if(i==0){
-            i=1;
-        }else if(i==1){
-            i=0;
+        setImage(rightSprites.get(imCh));
+        if(imCh==0){
+            imCh=1;
+        }else if(imCh==1){
+            imCh=0;
         }
     } 
     
     public void moveUp(){
         setY(getY() - increment);
-        int i=0;
-        setImage(upSprites.get(i));
-        if(i==0){
-            i=1;
-        }else if(i==1){
-            i=0;
+        setImage(upSprites.get(imCh));
+        if(imCh==0){
+            imCh=1;
+        }else if(imCh==1){
+            imCh=0;
         }
     }  
     
     public void moveDown(){
         setY(getY() + increment);
-        int i=0;
-        setImage(downSprites.get(i));
-        if(i==0){
-            i=1;
-        }else if(i==1){
-            i=0;
+        setImage(downSprites.get(imCh));
+        if(imCh==0){
+            imCh=1;
+        }else if(imCh==1){
+            imCh=0;
         }
     }
     
@@ -106,9 +107,14 @@ class PlayerObject extends MovableObject{
             }
         }
     }
-
+    
+    
     public void drawPlayer(Graphics g){
         g.drawImage(getImage(), getX() - getImage().getWidth(null)/2, getY() - getImage().getHeight(null)/2, null);
+        System.out.println("width " + this.getWidth() + " height " + this.getHeight() + " x " + this.getX() + " y " + this.getY());
+        System.out.println("getX " + getX());
+//        hB.drawHitBox(g);
+        g.drawLine(getX() - getImage().getWidth(null)/5, getY() - getImage().getHeight(null)/6, getX()+getImage().getWidth(null)/5 , getY()- getImage().getHeight(null)/6);
     }
     
     @Override

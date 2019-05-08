@@ -21,10 +21,11 @@ class GameLogic {
     private ArrayList<Image> levels;
     private Image playerImage;
     private static int level;
-
+    private DrawWalls dw;
     private Dimension boardSize;
     private int distanceFromBottom; 
     private PlayerObject po;
+    private boolean firstTime = true;
     
     public GameLogic(Dimension boardSize){
         
@@ -35,7 +36,7 @@ class GameLogic {
         loadImages();
         level = 0;
         createPlayerObject();
-        
+        ;
         // crea i bordi del labirinto
 //        createObjects();
         distanceFromBottom = 30;       
@@ -55,10 +56,16 @@ class GameLogic {
     public void drawObjects(Graphics g){
 
         switch(level){
+            
             case 0:
                 g.drawImage(levels.get(level), 0, 0, null);
-                po.setX(544);
-                po.setY(669);
+                dw = new DrawWalls("level");
+                if(firstTime){
+                    po.setX(544);
+                    po.setY(669);
+                    firstTime = false;
+                }
+                dw.drawTheWalls(g);
                 po.drawPlayer(g);
                 break;
         }
