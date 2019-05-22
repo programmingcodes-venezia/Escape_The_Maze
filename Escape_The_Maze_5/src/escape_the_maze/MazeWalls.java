@@ -53,7 +53,7 @@ public class MazeWalls extends MovableObject{
         switch(level){
             case 0:
                 for(int i=0;i<walls.size();i++){
-                    g.setColor(Color.red);
+                    g.setColor(Color.GREEN);
                     g.fillRect((int)walls.get(i).getX(), (int)walls.get(i).getY(), (int)walls.get(i).getWidth(), (int)walls.get(i).getHeight());
                 }
                 break;
@@ -127,9 +127,10 @@ public class MazeWalls extends MovableObject{
     
     public void isColliding(PlayerObject po){
         for(int i=0;i<walls.size();i++){
-            int j=0;
+            int j=1;
             if(walls.get(i).intersects(po.getHitBox())){
-                po.setLastDirection(j);
+                j=0;
+                po.wereHasCollided(j);
                 System.out.println("Into if decremented");
                 po.setIncrement(0);
             }

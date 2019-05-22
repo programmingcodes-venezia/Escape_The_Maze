@@ -3,11 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Users/damiano/Documents/NetBeans%20Project/Escape_The_Maze/Escape_The_Maze_3/src/escape_the_maze/GameLogic.java</file>
-            <file>file:/Users/damiano/Documents/NetBeans%20Project/Escape_The_Maze/Escape_The_Maze_3/src/escape_the_maze/MovableObject.java</file>
-            <file>file:/Users/damiano/Documents/NetBeans%20Project/Escape_The_Maze/Escape_The_Maze_3/src/escape_the_maze/MazeWalls.java</file>
-            <file>file:/Users/damiano/Documents/NetBeans%20Project/Escape_The_Maze/Escape_The_Maze_3/src/escape_the_maze/GameKeyAdapter.java</file>
-            <file>file:/Users/damiano/Documents/NetBeans%20Project/Escape_The_Maze/Escape_The_Maze_3/src/escape_the_maze/PlayerObject.java</file>
+            <file>file:/C:/Users/shushku.COLLALTO/Desktop/Escape_The_Maze_5/src/escape_the_maze/Node.java</file>
+            <file>file:/C:/Users/shushku.COLLALTO/Desktop/Escape_The_Maze_5/src/escape_the_maze/GameKeyAdapter.java</file>
+            <file>file:/C:/Users/shushku.COLLALTO/Desktop/Escape_The_Maze_5/src/escape_the_maze/Board.java</file>
+            <file>file:/C:/Users/shushku.COLLALTO/Desktop/Escape_The_Maze_5/src/escape_the_maze/PlayerObject.java</file>
+            <file>file:/C:/Users/shushku.COLLALTO/Desktop/Escape_The_Maze_5/src/escape_the_maze/GameLogic.java</file>
+            <file>file:/C:/Users/shushku.COLLALTO/Desktop/Escape_The_Maze_5/src/escape_the_maze/ComMinotaur.java</file>
         </group>
     </open-files>
 </project-private>

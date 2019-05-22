@@ -56,12 +56,15 @@ class GameKeyAdapter extends KeyAdapter{
                         case KeyEvent.VK_DOWN:
                         gl.getPlayerObject().moveDown();
                         
-                        break;            
+                        break;
+                        
+                        case KeyEvent.VK_ENTER:
+                            gl.nextLevel();
                     }
                 }
             };
             timer= new Timer(true);
-            timer.scheduleAtFixedRate(task, 0, 25);
+            timer.scheduleAtFixedRate(task, 0, 100);
         }
         
         @Override

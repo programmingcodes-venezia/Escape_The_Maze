@@ -26,10 +26,11 @@ class PlayerObject extends MovableObject{
     ArrayList<Image> rightSprites;
     private Rectangle hitbox;
     private boolean pressed;
-    private int increment = 1;
+    private int increment = 10;
     private int i;
     private  String direction;
-    private String lastDirection;
+    private boolean collide = false;
+    private String lastDirection = "niente";
     public PlayerObject(int x, int y ,Dimension boardSize) {
         
         super(x,y,boardSize);
@@ -46,7 +47,8 @@ class PlayerObject extends MovableObject{
     public void moveLeft(){
         direction = "left";
         if(hasChanged(lastDirection)){
-            setIncrement(1);
+            xd(lastDirection);
+            setIncrement(10);
         }
         setX(getX() - getIncrement());
         
@@ -63,7 +65,8 @@ class PlayerObject extends MovableObject{
     public void moveRight(){
         direction = "right";
         if(hasChanged(lastDirection)){
-            setIncrement(1);
+            xd(lastDirection);
+            setIncrement(10);
         }
         setX(getX() + getIncrement());
         if(this.i==0){
@@ -77,10 +80,10 @@ class PlayerObject extends MovableObject{
     } 
     
     public void moveUp(){
-        System.out.println("uppppppppppp        !!!!!!!");
         direction = "up";        
         if(hasChanged(lastDirection)){
-            setIncrement(1);
+            xd(lastDirection);
+            setIncrement(10);
         }
         setY(getY() - getIncrement());
         if(this.i==0){
@@ -96,10 +99,8 @@ class PlayerObject extends MovableObject{
     public void moveDown(){
         direction = "down";
         if(hasChanged(lastDirection)){
-            setIncrement(1);
-        }
-        if(hasChanged(lastDirection)){
-            setIncrement(1);
+            setIncrement(10);
+            xd(lastDirection);
         }
         setY(getY() + getIncrement());
         if(this.i==0){
@@ -137,8 +138,9 @@ class PlayerObject extends MovableObject{
     public void drawPlayer(Graphics g){
         g.drawImage(getImage(), getX() - getImage().getWidth(null)/2, getY() - getImage().getHeight(null)/2, null);
         System.out.println("incremnet   " + increment);
+        System.out.println("last direction " + lastDirection);
         hitbox = new Rectangle(getX() - getImage().getWidth(null)/7 ,getY() - getImage().getHeight(null)/9, getImage().getWidth(null)-133 , getImage().getHeight(null)/4);
-        g.drawRect((int)hitbox.getX(), (int)hitbox.getY(), (int)hitbox.getWidth(), (int)hitbox.getHeight());
+        //g.drawRect((int)hitbox.getX(), (int)hitbox.getY(), (int)hitbox.getWidth(), (int)hitbox.getHeight());
     }
     
     @Override
@@ -171,9 +173,28 @@ class PlayerObject extends MovableObject{
         return direction;
     }
     
-    public void setLastDirection(int i){
+    public void wereHasCollided(int i){
         if(i == 0){
             this.lastDirection=getDirection();
         }
-    }    
+    }
+    
+    public void xd(String d){
+        if(d.equals("up")){
+            setY(getY()+10);
+            lastDirection = "niente";
+        }
+        if(d.equals("right")){
+            setX(getX()-10);
+            lastDirection = "niente";
+        }
+        if(d.equals("down")){
+            setY(getY()-10);
+            lastDirection = "niente";
+        }
+        if(d.equals("left")){
+            setX(getX()+10);
+            lastDirection = "niente";
+        }
+    }
 }
